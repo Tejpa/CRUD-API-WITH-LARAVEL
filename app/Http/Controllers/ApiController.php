@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 
 class ApiController extends Controller
 {
+    // Insert Student Information
     public function store(Request $request)
     {
     	$student = new students;
@@ -20,20 +21,21 @@ class ApiController extends Controller
 
     	return response()->json($student);
     }
-
+    // Get all Student Information List
     public function show()
     {
       $student = students::all();
       return response()->json($student);
     }
-
+    // Get Student Information By Id
     public function getStudentById($id)
     {
       $student = students::find($id);
      // $student = students::where('id',$id)->first(); you can use this also
       return response()->json($student);
     }
-
+    
+    // Update Student Information
     public function updateStudentById(Request $request,$id)
     {
     	$student = students::find($id);
@@ -45,7 +47,7 @@ class ApiController extends Controller
 
     	return response()->json($student);
     }
-
+      // Delete Student 
     public function deleteStudentById($id)
     {
     	$student = students::find($id);
